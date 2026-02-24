@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATHORENGLESS | Репетиторы 1-5 класс</title>
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 18px;
+        }
+
+        /* Герой (Hero) секция */
+        .hero {
+            padding: 60px 0 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            background: #dbeafe;
+            color: #1e4fd9;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .hero-title span {
+            color: #3b82f6;
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #bfdbfe;
+            z-index: -1;
+        }
+
+        .hero-text {
+            font-size: 18px;
+            color: #475569;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-offer {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid #e9eef2;
+        }
+
+        .price-tag {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .price-tag small {
+            font-size: 16px;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Плашка с особенностями */
+        .features {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 24px;
+            background: #f8fafc;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: #2563eb;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #475569;
+        }
+
+        /* О преподавателях */
+        .about {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-image {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .about-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+        }
+
+        .about-list i {
+            color: #3b82f6;
+            width: 24px;
+            font-size: 20px;
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px -15px rgba(0,0,0,0.1);
+            border: 1px solid #e9eef2;
+        }
+
+        .teacher-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid #dbeafe;
+        }
+
+        .teacher-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .teacher-subject {
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .teacher-desc {
+            color: #475569;
+        }
+
+        .experience-badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .cat-badge {
+            display: inline-block;
+            background: #fef9c3;
+            color: #854d0e;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 20px;
+            border: 2px solid #fbbf24;
+        }
+
+        /* Предметы */
+        .subjects {
+            padding: 60px 0;
+            background: #f1f5f9;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+
+        .subject-icon {
+            font-size: 60px;
+            width: 100px;
+            height: 100px;
+            background: #eef2ff;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .subject-content h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subject-content p {
+            color: #475569;
+        }
+
+        /* Цены и тарифы */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2);
+            border: 1px solid #e9eef2;
+            text-align: center;
+        }
+
+        .pricing-badge {
+            background: #fef9c3;
+            color: #854d0e;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .pricing-price {
+            font-size: 64px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 20px 0;
+        }
+
+        .pricing-price small {
+            font-size: 20px;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+        }
+
+        .pricing-features i {
+            color: #22c55e;
+        }
+
+        .pricing-note {
+            margin-top: 15px;
+            color: #64748b;
+        }
+
+        /* Форма обратной связи */
+        .contact {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .contact-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #f8fafc;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 18px 22px;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+            background: white;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+
+        .success-message {
+            background: #22c55e;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* Футер */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #bfdbfe;
+            text-decoration: none;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 40px;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .teachers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            .features-grid, .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+            .subject-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-form-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">🐱 MATHORENGLESS</div>
+            <a href="#contact" class="btn btn-primary">Записаться</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero секция с фото ребенка -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        😺 MATH OR ENGLESS? Выбирай!
+                    </div>
+                    <h1 class="hero-title">
+                        Помощь с домашкой и <span>мур-репетиторство</span> без стресса
+                    </h1>
+                    <p class="hero-text">
+                        Индивидуальные занятия для вашего ребёнка. Мурлыкаем объясняем сложное простым языком, прививаем любовь к учёбе.
+                    </p>
+                    <div class="hero-offer">
+                        <span style="display: block; font-weight: 600; margin-bottom: 5px;">🎁 Первое занятие</span>
+                        <span class="price-tag">Бесплатно <small> / 60 мин</small></span>
+                    </div>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="#contact" class="btn btn-primary btn-large">Записаться на пробный</a>
+                        <a href="#pricing" class="btn btn-outline btn-large">Цены</a>
+                    </div>
+                    
+                    <!-- Объявление про котиков -->
+                    <div class="cat-badge">
+                        😻 MATHORENGLESS — репетиторы-котики!
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Фото ребенка за уроками -->
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Ребенок делает уроки">
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Почему MATHORENGLESS?</h2>
+                <p class="section-subtitle">Занятия проходят в комфортном темпе, с учётом особенностей ребёнка</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-paw"></i></div>
+                        <h3>Мягкие лапки</h3>
+                        <p>Нежный подход к каждому ученику.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Гибкий график</h3>
+                        <p>Занимаемся в удобное для вас время, даже ночью (котики же ночные).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-fish"></i></div>
+                        <h3>Рыбки за успехи</h3>
+                        <p>Мотивируем учеников вкусняшками.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-music"></i></div>
+                        <h3>Мурлыканье</h3>
+                        <p>Успокаиваем и создаём уютную атмосферу.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- О преподавателях-котиках -->
+        <section class="about">
+            <div class="container">
+                <!-- Анна-котик -->
+                <div class="about-grid">
+                    <div class="about-image">
+                        <!-- ФОТО РЫЖЕГО КОТИКА ДЛЯ АННЫ -->
+                        <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=715&q=80" alt="Котик Анна">
+                    </div>
+                    <div class="about-content">
+                        <h2>Мяу! Я — Анна 🐱</h2>
+                        <p style="font-size: 18px; color: #334155;">Репетитор по английскому и математике. Помогаю детям полюбить учиться и разобраться в сложных темах. Очень люблю рыбу и мурлыкать на уроках!</p>
+                        <ul class="about-list">
+                            <li><i class="fas fa-paw"></i> Мурлыкаю на двух языках</li>
+                            <li><i class="fas fa-fish"></i> Обожаю рыбу и детей</li>
+                            <li><i class="fas fa-heart"></i> Уже 10 довольных учеников</li>
+                            <li><i class="fas fa-certificate"></i> Умею ловить мышей и знания</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Наша команда котиков -->
+                <h2 class="section-title">Наша команда</h2>
+                <p class="section-subtitle">Мурлыкающие преподаватели MATHORENGLESS</p>
+                
+                <div class="teachers-grid">
+                    <!-- Анна-котик -->
+                    <div class="teacher-card">
+                        <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=715&q=80" alt="Котик Анна" class="teacher-photo">
+                        <div class="teacher-name">Анна 🐱</div>
+                        <div class="teacher-subject">Английский и математика</div>
+                        <p class="teacher-desc">Мурлыкаю на двух языках. Опыт 5 месяцев.</p>
+                        <div class="experience-badge">🐟 5 месяцев опыта</div>
+                    </div>
+                    
+                    <!-- Софья-котик -->
+                    <div class="teacher-card">
+                        <!-- ФОТО СЕРОГО КОТИКА ДЛЯ СОФЬИ -->
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Котик Софья" class="teacher-photo">
+                        <div class="teacher-name">Софья 🐱</div>
+                        <div class="teacher-subject">Английский язык</div>
+                        <p class="teacher-desc">Молодой котик, современный подход.</p>
+                        <div class="experience-badge">🐟 1 месяц опыта</div>
+                    </div>
+                </div>
+                
+                <!-- Подтверждение -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 20px; color: #2563eb; font-weight: 600;">
+                        <i class="fas fa-cat" style="color: #f59e0b;"></i> 
+                        MATHORENGLESS — да, мы настоящие котики! Мяу-мяу! 😺
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Предметы -->
+        <section class="subjects">
+            <div class="container">
+                <h2 class="section-title">Направления занятий</h2>
+                <p class="section-subtitle">Помощь по двум основным предметам, которые часто вызывают трудности</p>
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <div class="subject-icon">📐</div>
+                        <div class="subject-content">
+                            <h3>MATH</h3>
+                            <p>Сложение, вычитание, таблица умножения, дроби, уравнения, задачи. Научим считать быстро и без ошибок.</p>
+                        </div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-icon">🇬🇧</div>
+                        <div class="subject-content">
+                            <h3>ENGLESS (English)</h3>
+                            <p>Чтение, грамматика, лексика, разговорная речь. Догоним и перегоним школьную программу.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Цены -->
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <h2 class="section-title">Стоимость занятий</h2>
+                <p class="section-subtitle">Прозрачные цены без скрытых платежей</p>
+                <div class="pricing-card">
+                    <div class="pricing-badge">🔥 Самое популярное</div>
+                    <div class="pricing-price">300 ₽ <small>/ занятие</small></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Индивидуальное занятие 45-60 минут</li>
+                        <li><i class="fas fa-check-circle"></i> Помощь с домашним заданием</li>
+                        <li><i class="fas fa-check-circle"></i> Объяснение сложных тем</li>
+                        <li><i class="fas fa-check-circle"></i> Подготовка к контрольным работам</li>
+                        <li><i class="fas fa-star" style="color: #f59e0b;"></i> <strong>Первое занятие — бесплатно!</strong></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary btn-large" style="width: 100%;">Записаться</a>
+                    <p class="pricing-note">Рыбки и сметанка в подарок после 5 занятий!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма связи -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Запишитесь на бесплатное занятие</h2>
+                <p class="section-subtitle">Познакомимся, определим уровень ребёнка и составим план обучения</p>
+                <div class="contact-form-container">
+                    <div class="success-message" id="successMessage">
+                        Спасибо! Ваша заявка отправлена. Мы (котики MATHORENGLESS) свяжемся с вами в ближайшее время. Мяу!
+                    </div>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Номер телефона" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email (необязательно)">
+                        </div>
+                        <div class="form-group">
+                            <select id="class" required>
+                                <option value="">Выберите класс ребёнка</option>
+                                <option value="1">1 класс</option>
+                                <option value="2">2 класс</option>
+                                <option value="3">3 класс</option>
+                                <option value="4">4 класс</option>
+                                <option value="5">5 класс</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="subject" required>
+                                <option value="">Выберите предмет</option>
+                                <option value="math">MATH (Математика)</option>
+                                <option value="english">ENGLESS (Английский)</option>
+                                <option value="both">Оба предмета</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="teacher" required>
+                                <option value="">Выберите репетитора-котика</option>
+                                <option value="anna">Анна (рыжий котик, 5 месяцев)</option>
+                                <option value="sofya">Софья (серый котик, 1 месяц)</option>
+                                <option value="any">Любой котик</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" id="message" placeholder="Сообщение или вопрос (например, удобное время)"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Отправить заявку</button>
+                        <p style="margin-top: 15px; font-size: 14px; color: #64748b;">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и угощаете нас сметанкой</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>🐱 MATHORENGLESS — помощь школьникам 1-5 класс</p>
+            <p style="margin-top: 10px;">Мур-мур-мяу! © 2025 · Все права защищены 🐟</p>
+        </div>
+    </footer>
+
+    <!-- Скрипт для отправки формы на почту -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Получаем значения полей
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value || 'не указан';
+            const classValue = document.getElementById('class').value;
+            const subject = document.getElementById('subject').value;
+            const teacher = document.getElementById('teacher').value;
+            const message = document.getElementById('message').value || 'нет сообщения';
+            
+            // Определяем тексты
+            let subjectText = '';
+            if (subject === 'math') subjectText = 'Математика (MATH)';
+            else if (subject === 'english') subjectText = 'Английский (ENGLESS)';
+            else if (subject === 'both') subjectText = 'Оба предмета';
+            
+            let teacherText = '';
+            if (teacher === 'anna') teacherText = 'Анна (рыжий котик)';
+            else if (teacher === 'sofya') teacherText = 'Софья (серый котик)';
+            else if (teacher === 'any') teacherText = 'Любой котик';
+            
+            // Отправляем через Formspree
+            fetch('https://formspree.io/f/akimovaar2013@gmail.ru', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    class: classValue,
+                    subject: subjectText,
+                    teacher: teacherText,
+                    message: message,
+                    _replyto: email || 'no-reply@example.com'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('contactForm').reset();
+                    
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    alert('Произошла ошибка. Пожалуйста, попробуйте позже или позвоните нам.');
+                }
+            })
+            .catch(error => {
+                alert('Произошла ошибка. Пожалуйста, попробуйте позже или позвоните нам.');
+            });
+        });
+    </script>
+</body>
+</html>
